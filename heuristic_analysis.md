@@ -98,8 +98,6 @@ Unload(C3, P3, SFO)
 
 # Problem 3
 
-## Introduction
-
 ## Initial states and goal
 ```
 Init(At(C1, SFO) ∧ At(C2, JFK) ∧ At(C3, ATL) ∧ At(C4, ORD) 
@@ -114,13 +112,13 @@ Goal(At(C1, JFK) ∧ At(C3, JFK) ∧ At(C2, SFO) ∧ At(C4, SFO))
 
 | Search Method                            | Expansions    | Goal tests | New nodes | Plan length | Time spent  |
 | -----------------------------------------|:-------------:|:----------:|:---------:|:-----------:| -----------:|
-| breadth_first_search                     |  43           | 56         | 180       | 6           | 0.039       |
-| breadth_first_tree_search                |               |            |           |             | TIMEOUT     | 
-| depth_first_graph_search                 |  624          | 625        | 5602      | 619         | 3.923       |
-| depth_limited_search                     |               |            |           |             | TIMEOUT     |
-| uniform_cost_search                      |  55           | 57         | 224       | 6           | 0.051       |
-| recursive_best_first_search              |  4229         | 4230       | 17023     | 6           | 3.276       |
-| greedy_best_first_graph_search           |  7            | 9          | 28        | 6           | 0.005       |
+| breadth_first_search                     |  14663        | 18098      | 12963     | **12**      | 124.733     |
+| breadth_first_tree_search                |  ABORTED      | ABORTED    | ABORTED   | ABORTED     | ABORTED     |
+| depth_first_graph_search                 |  408          | 409        | 3364      | 392         | 2.035       |
+| depth_limited_search                     |  ABORTED      | ABORTED    | ABORTED   | ABORTED     | ABORTED     |
+| uniform_cost_search                      |  17882        | 17884      | 156769    | **12**      | 499.634     |
+| recursive_best_first_search              |  ABORTED      | ABORTED    | ABORTED   | ABORTED     | ABORTED     |
+| greedy_best_first_graph_search           |  4498         | 4500       | 39970     | 26          | 102.867     |
 | astar_search with h_1                    |  55           | 57         | 224       | 6           | 0.054       |
 | astar_search with h_ignore_preconditions |  41           | 43         | 170       | 6           | 0.081       |
 | astar_search with h_pg_levelsum          |  11           | 13         | 50        | 6           | 2.122       |
