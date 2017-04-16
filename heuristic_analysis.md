@@ -30,6 +30,9 @@ Goal(At(C1, JFK) ∧ At(C2, SFO))
 | astar_search with h_ignore_preconditions |  41           | 43         | 170       | **6**       | 0.081       |
 | astar_search with h_pg_levelsum          |  11           | 13         | 50        | **6**       | 2.122       |
 
+## Optimal plan
+
+
 ## Analysis
 
 Many heuristics achieve the optimal length under a second of calculation time. This is the greedy best first search which achieve the best result.
@@ -54,14 +57,14 @@ Goal(At(C1, JFK) ∧ At(C2, SFO) ∧ At(C3, SFO))
 | Search Method                            | Expansions    | Goal tests | New nodes | Plan length | Time spent  |
 | -----------------------------------------|:-------------:|:----------:|:---------:|:-----------:| -----------:|
 | breadth_first_search                     |  3343         | 4609       | 30509     | 9           | 16.962      |
-| breadth_first_tree_search                |               |            |           |             | TIMEOUT     | 
+| breadth_first_tree_search                |  ABORTED      | ABORTED    | ABORTED   | ABORTED     | ABORTED     | 
 | depth_first_graph_search                 |  624          | 625        | 5602      | 619         | 4.029       |
-| depth_limited_search                     |               |            |           |             | TIMEOUT     |
-| uniform_cost_search                      |  55           | 57         | 224       | 6           | 0.051       |
-| recursive_best_first_search              |  4229         | 4230       | 17023     | 6           | 3.276       |
-| greedy_best_first_graph_search           |  7            | 9          | 28        | 6           | 0.005       |
-| astar_search with h_1                    |  55           | 57         | 224       | 6           | 0.054       |
-| astar_search with h_ignore_preconditions |  41           | 43         | 170       | 6           | 0.081       |
+| depth_limited_search                     |  ABORTED      | ABORTED    | ABORTED   | ABORTED     | ABORTED     |
+| uniform_cost_search                      |  4780         | 4782       | 43381     | 9           | 52.526      |
+| recursive_best_first_search              |  ABORTED      | ABORTED    | ABORTED   | ABORTED     | ABORTED     |
+| greedy_best_first_graph_search           |  598          | 600        | 5382      | 17          | 3.982       |
+| astar_search with h_1                    |  4780         | 4782       | 43381     | 9           | 52.049      |
+| astar_search with h_ignore_preconditions |  1506         | 1508       | 13820     | 9           | 16.628      |
 | astar_search with h_pg_levelsum          |  11           | 13         | 50        | 6           | 2.122       |
 
 ## Analysis
