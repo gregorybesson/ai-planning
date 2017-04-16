@@ -3,13 +3,13 @@
 ## Introduction
 We'll try to solve 3 different problems in an Air Cargo transport system using 10 different search agents. 7 being non heuristic:
 
-- bread_first_search (BFS): is a simple strategy in which the root node is expanded first, then all the successors of the root node are expanded next, then their successors, and so on.
-- breadth_first_tree_search
-- depth_first_graph_search (DFS): always expands the deepest node in the current frontier of the search tree.
-- depth_limited_search: we supply depth-first search with a predetermined depth limit l.
-- uniform_cost_search (UCS): demands the use of a priority queue. Recall that Depth First Search used a priority queue with the depth upto a particular node being the priority and the path from the root to the node being the element stored. The priority queue used here is similar with the priority being the cumulative cost upto the node. Unlike Depth First Search where the maximum depth had the maximum priority, Uniform Cost Search gives the minimum cumulative cost the maximum priority.
-- recursive_best_first_search
-- greedy_best_first_graph_search: a search with a heuristic that attempts to predict how close the end of a path is to a solution, so that paths which are judged to be closer to a solution are extended first. Using a greedy algorithm, expand the first successor of the parent. After a successor is generated:
+- **breadth_first_search (BFS)**: is a simple strategy in which the root node is expanded first, then all the successors of the root node are expanded next, then their successors, and so on.
+- **breadth_first_tree_search**
+- **depth_first_graph_search (DFS)**: always expands the deepest node in the current frontier of the search tree.
+- **depth_limited_search**: we supply depth-first search with a predetermined depth limit l.
+- **uniform_cost_search (UCS)**: demands the use of a priority queue. Recall that Depth First Search used a priority queue with the depth upto a particular node being the priority and the path from the root to the node being the element stored. The priority queue used here is similar with the priority being the cumulative cost upto the node. Unlike Depth First Search where the maximum depth had the maximum priority, Uniform Cost Search gives the minimum cumulative cost the maximum priority.
+- **recursive_best_first_search**: Recursive Best-First Search is a search algorithm that acts in a way similar to the Standard Best-First Search. It is also very similar in design to the recursive depth-first search algorithm, although there is one significant difference. The RBFS algorithm works by keeping track of an upper bound. This upper bound allows the algorithm to "choose" better paths rather than continuing indefinitely down the same one. The upper bound is set to the f-value of the best alternative path from the ancestor of the current node. The current node is then expanded and the child nodes investigated. If all the child nodes exceed the upper bound then the current nodes f-value is set to the best child nodes f-value, and the best alternative path (i.e. the upper bound) is visited. Should one or more of the child nodes be less than the upper bound the node with the smallest f-value is visited and the upper bound is set to the lowest alternative (which could mean it does not change). __One major flaw of this algorithm is that it can visit the same node several times__.
+- **greedy_best_first_graph_search**: a search with a heuristic that attempts to predict how close the end of a path is to a solution, so that paths which are judged to be closer to a solution are extended first. Using a greedy algorithm, expand the first successor of the parent. After a successor is generated:
   1. If the successor's heuristic is better than its parent, the successor is set at the front of the queue (with the parent reinserted directly behind it), and the loop restarts.
   2. Else, the successor is inserted into the queue (in a location determined by its heuristic value). The procedure will evaluate the remaining successors (if any) of the parent.
 
