@@ -1,8 +1,26 @@
+# Analysis of deterministic logistics planning problems for an Air Cargo transport system using a planning search agent
+
+## Introduction
+We'll try to solve 3 different problems in an Air Cargo transport system using 10 different search agents. 7 being non heuristic:
+
+- bread_first_search
+- breadth_first_tree_search
+- depth_first_graph_search
+- depth_limited_search
+- uniform_cost_search
+- recursive_best_first_search
+- greedy_best_first_graph_search
+
+3 being heuristic:
+- astar_search with h_1
+- astar_search with h_ignore_preconditions
+- astar_search with h_pg_levelsum
+
+We'll then analyze the results and propose the optimal solution for each problem.
 
 # Problem 1
 
 ## Introduction
-
 In this problem 1, there are 12 fluents, or state variables, which means our state space could be as large as 2to12 = 4096
 
 ## Initial states and goal
@@ -29,7 +47,7 @@ Goal(At(C1, JFK) ∧ At(C2, SFO))
 | recursive_best_first_search              |  4229         | 4230       | 17023     | **6**       | 3.276       |
 | greedy_best_first_graph_search           |  **7**        | **9**      | **28**    | **6**       | **0.005**   |
 
-### Non heuristics
+### Heuristics
 
 | Search Method                            | Expansions    | Goal tests | New nodes | Plan length | Time spent  |
 | -----------------------------------------|:-------------:|:----------:|:---------:|:-----------:| -----------:|
@@ -81,7 +99,6 @@ Goal(At(C1, JFK) ∧ At(C2, SFO) ∧ At(C3, SFO))
 | astar_search with h_pg_levelsum          |  **86**       | **88**     | **841**   | **9**       | 230.865     |
 
 ## Optimal plan
-
 The heuristic a* with ignore preconditions is the one providing the optimal plan
 ```
 Load(C1, P1, SFO)
@@ -101,6 +118,9 @@ Unload(C3, P3, SFO)
 
 # Problem 3
 
+## Introduction
+In this problem 3, there are 32 fluents, or state variables, which means our state space could be as large as 2to32 = 4 294 967 296
+
 ## Initial states and goal
 ```
 Init(At(C1, SFO) ∧ At(C2, JFK) ∧ At(C3, ATL) ∧ At(C4, ORD) 
@@ -113,19 +133,39 @@ Goal(At(C1, JFK) ∧ At(C3, JFK) ∧ At(C2, SFO) ∧ At(C4, SFO))
 
 ## Results
 
+### Non heuristics
+
 | Search Method                            | Expansions    | Goal tests | New nodes | Plan length | Time spent  |
 | -----------------------------------------|:-------------:|:----------:|:---------:|:-----------:| -----------:|
 | breadth_first_search                     |  14663        | 18098      | 12963     | **12**      | 124.733     |
 | breadth_first_tree_search                |  ABORTED      | ABORTED    | ABORTED   | ABORTED     | ABORTED     |
-| depth_first_graph_search                 |  408          | 409        | 3364      | 392         | 2.035       |
+| depth_first_graph_search                 |  **408**      | **409**    | **3364**  | 392         | **2.035**   |
 | depth_limited_search                     |  ABORTED      | ABORTED    | ABORTED   | ABORTED     | ABORTED     |
 | uniform_cost_search                      |  17882        | 17884      | 156769    | **12**      | 499.634     |
 | recursive_best_first_search              |  ABORTED      | ABORTED    | ABORTED   | ABORTED     | ABORTED     |
 | greedy_best_first_graph_search           |  4498         | 4500       | 39970     | 26          | 102.867     |
-| astar_search with h_1                    |  55           | 57         | 224       | 6           | 0.054       |
-| astar_search with h_ignore_preconditions |  41           | 43         | 170       | 6           | 0.081       |
+
+### Heuristics
+| Search Method                            | Expansions    | Goal tests | New nodes | Plan length | Time spent  |
+| -----------------------------------------|:-------------:|:----------:|:---------:|:-----------:| -----------:|
+| astar_search with h_1                    |  17882        | 17884      | 156769    | **12**      | 491.435     |
+| astar_search with h_ignore_preconditions |  5114         | 5116       | 45610     | **12**      | 116.506     |
 | astar_search with h_pg_levelsum          |  11           | 13         | 50        | 6           | 2.122       |
+
+## Optimal plan
+The heuristic a* with ignore preconditions is the one providing the optimal plan
+```
+Load(C1, P1, SFO)
+Fly(P1, SFO, JFK)
+Unload(C1, P1, JFK)
+Load(C2, P2, JFK)
+Fly(P2, JFK, SFO)
+Unload(C2, P2, SFO)
+Load(C3, P3, ATL)
+Fly(P3, ATL, SFO)
+Unload(C3, P3, SFO)
+```
 
 ## Analysis
 
-Many heuristics achieve the optimal length under a second of calculation time. This is the greedy best first search which achieve the best result.
+
