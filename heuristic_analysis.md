@@ -46,7 +46,7 @@ Many heuristics achieve the optimal length under a second of calculation time. T
 | breadth_first_search                     |  3343         | 4609       | 30509     | 9           | 16.962      |
 | breadth_first_tree_search                |               |            |           |             | TIMEOUT     | 
 | depth_first_graph_search                 |  624          | 625        | 5602      | 619         | 4.029       |
-| depth_limited_search                     |  101          | 271        | 414       | 50          | 0.126       |
+| depth_limited_search                     |               |            |           |             | TIMEOUT     |
 | uniform_cost_search                      |  55           | 57         | 224       | 6           | 0.051       |
 | recursive_best_first_search              |  4229         | 4230       | 17023     | 6           | 3.276       |
 | greedy_best_first_graph_search           |  7            | 9          | 28        | 6           | 0.005       |
