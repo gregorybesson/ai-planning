@@ -17,6 +17,8 @@ Goal(At(C1, JFK) ∧ At(C2, SFO))
 
 ## Results
 
+### Non heuristics
+
 | Search Method                            | Expansions    | Goal tests | New nodes | Plan length | Time spent  |
 | -----------------------------------------|:-------------:|:----------:|:---------:|:-----------:| -----------:|
 | breadth_first_search                     |  43           | 56         | 180       | **6**       | 0.039       |
@@ -26,6 +28,11 @@ Goal(At(C1, JFK) ∧ At(C2, SFO))
 | uniform_cost_search                      |  55           | 57         | 224       | **6**       | 0.051       |
 | recursive_best_first_search              |  4229         | 4230       | 17023     | **6**       | 3.276       |
 | greedy_best_first_graph_search           |  **7**        | **9**      | **28**    | **6**       | **0.005**   |
+
+### Non heuristics
+
+| Search Method                            | Expansions    | Goal tests | New nodes | Plan length | Time spent  |
+| -----------------------------------------|:-------------:|:----------:|:---------:|:-----------:| -----------:|
 | astar_search with h_1                    |  55           | 57         | 224       | **6**       | 0.054       |
 | astar_search with h_ignore_preconditions |  41           | 43         | 170       | **6**       | 0.081       |
 | astar_search with h_pg_levelsum          |  11           | 13         | 50        | **6**       | 2.122       |
@@ -54,22 +61,40 @@ Goal(At(C1, JFK) ∧ At(C2, SFO) ∧ At(C3, SFO))
 
 ## Results
 
+### Non heuristics
 | Search Method                            | Expansions    | Goal tests | New nodes | Plan length | Time spent  |
 | -----------------------------------------|:-------------:|:----------:|:---------:|:-----------:| -----------:|
-| breadth_first_search                     |  3343         | 4609       | 30509     | 9           | 16.962      |
+| breadth_first_search                     |  3343         | 4609       | 30509     | **9**       | 16.962      |
 | breadth_first_tree_search                |  ABORTED      | ABORTED    | ABORTED   | ABORTED     | ABORTED     | 
 | depth_first_graph_search                 |  624          | 625        | 5602      | 619         | 4.029       |
 | depth_limited_search                     |  ABORTED      | ABORTED    | ABORTED   | ABORTED     | ABORTED     |
-| uniform_cost_search                      |  4780         | 4782       | 43381     | 9           | 52.526      |
+| uniform_cost_search                      |  4780         | 4782       | 43381     | **9**       | 52.526      |
 | recursive_best_first_search              |  ABORTED      | ABORTED    | ABORTED   | ABORTED     | ABORTED     |
-| greedy_best_first_graph_search           |  598          | 600        | 5382      | 17          | 3.982       |
-| astar_search with h_1                    |  4780         | 4782       | 43381     | 9           | 52.049      |
-| astar_search with h_ignore_preconditions |  1506         | 1508       | 13820     | 9           | 16.628      |
-| astar_search with h_pg_levelsum          |  86           | 88         | 841       | 9           | 230.865     |
+| greedy_best_first_graph_search           |  598          | 600        | 5382      | 17          | **3.982**   |
+
+### Heuristics
+| Search Method                            | Expansions    | Goal tests | New nodes | Plan length | Time spent  |
+| -----------------------------------------|:-------------:|:----------:|:---------:|:-----------:| -----------:|
+| astar_search with h_1                    |  4780         | 4782       | 43381     | **9**       | 52.049      |
+| astar_search with h_ignore_preconditions |  1506         | 1508       | 13820     | **9**       | 16.628      |
+| astar_search with h_pg_levelsum          |  **86**       | **88**     | **841**   | **9**       | 230.865     |
+
+## Optimal plan
+```
+Load(C1, P1, SFO)
+Fly(P1, SFO, JFK)
+Unload(C1, P1, JFK)
+Load(C2, P2, JFK)
+Fly(P2, JFK, SFO)
+Unload(C2, P2, SFO)
+Load(C3, P3, ATL)
+Fly(P3, ATL, SFO)
+Unload(C3, P3, SFO)
+```
 
 ## Analysis
 
-Many heuristics achieve the optimal length under a second of calculation time. This is the greedy best first search which achieves the best result. The number of expansions is minimal in this case (7) implying a minimal number of goal tests thus explaining the success of this heuristic.
+
 
 # Problem 3
 
