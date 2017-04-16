@@ -4,7 +4,7 @@
 We'll try to solve 3 different problems in an Air Cargo transport system using 10 different search agents. 7 being non heuristic:
 
 - **breadth_first_search (BFS)**: is a simple strategy in which the root node is expanded first, then all the successors of the root node are expanded next, then their successors, and so on.
-- **breadth_first_tree_search**
+- **breadth_first_tree_search**: traverses a tree using a queue to achieve breadth-first order.
 - **depth_first_graph_search (DFS)**: always expands the deepest node in the current frontier of the search tree.
 - **depth_limited_search**: we supply depth-first search with a predetermined depth limit l.
 - **uniform_cost_search (UCS)**: demands the use of a priority queue. Recall that Depth First Search used a priority queue with the depth upto a particular node being the priority and the path from the root to the node being the element stored. The priority queue used here is similar with the priority being the cumulative cost upto the node. Unlike Depth First Search where the maximum depth had the maximum priority, Uniform Cost Search gives the minimum cumulative cost the maximum priority.
@@ -14,9 +14,10 @@ We'll try to solve 3 different problems in an Air Cargo transport system using 1
   2. Else, the successor is inserted into the queue (in a location determined by its heuristic value). The procedure will evaluate the remaining successors (if any) of the parent.
 
 3 being heuristic:
-- astar_search with h_1
-- astar_search with h_ignore_preconditions
-- astar_search with h_pg_levelsum
+heuristic can be derived by defining a relaxed problem that is easier to solve.
+- astar_search with h_1: heuristic returning the cost of 1 (not a real heuristic).
+- astar_search with h_ignore_preconditions: the ignore preconditions heuristic drops all preconditions from actions.
+- astar_search with h_pg_levelsum: The level sum heuristic, following the subgoal independence assumption, returns the sum of the level costs of the goals.
 
 We'll then analyze the results and propose the optimal solution for each problem.
 
