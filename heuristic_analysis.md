@@ -47,7 +47,7 @@ Goal(At(C1, JFK) ∧ At(C2, SFO))
 | depth_limited_search                     |  101          | 271        | 414       | 50          | 0.126       |
 | uniform_cost_search                      |  55           | 57         | 224       | **6**       | 0.051       |
 | recursive_best_first_search              |  4229         | 4230       | 17023     | **6**       | 3.276       |
-| greedy_best_first_graph_search           |  **7**        | **9**      | **28**    | **6**       | **0.005**   |
+| **greedy_best_first_graph_search**       |  **7**        | **9**      | **28**    | **6**       | **0.005**   |
 
 ### Heuristics
 
@@ -94,11 +94,11 @@ Goal(At(C1, JFK) ∧ At(C2, SFO) ∧ At(C3, SFO))
 | greedy_best_first_graph_search           |  598          | 600        | 5382      | 17          | **3.982**   |
 
 ### Heuristics
-| Search Method                            | Expansions    | Goal tests | New nodes | Plan length | Time spent  |
-| -----------------------------------------|:-------------:|:----------:|:---------:|:-----------:| -----------:|
-| astar_search with h_1                    |  4780         | 4782       | 43381     | **9**       | 52.049      |
-| astar_search with h_ignore_preconditions |  1506         | 1508       | 13820     | **9**       | 16.628      |
-| astar_search with h_pg_levelsum          |  **86**       | **88**     | **841**   | **9**       | 230.865     |
+| Search Method                                | Expansions    | Goal tests | New nodes | Plan length | Time spent  |
+| ---------------------------------------------|:-------------:|:----------:|:---------:|:-----------:| -----------:|
+| astar_search with h_1                        |  4780         | 4782       | 43381     | **9**       | 52.049      |
+| **astar_search with h_ignore_preconditions** |  1506         | 1508       | 13820     | **9**       | 16.628      |
+| astar_search with h_pg_levelsum              |  **86**       | **88**     | **841**   | **9**       | 230.865     |
 
 ## Optimal plan
 The heuristic a* with ignore preconditions is the one providing the optimal plan
@@ -141,18 +141,18 @@ Goal(At(C1, JFK) ∧ At(C3, JFK) ∧ At(C2, SFO) ∧ At(C4, SFO))
 | -----------------------------------------|:-------------:|:----------:|:---------:|:-----------:| -----------:|
 | breadth_first_search                     |  14663        | 18098      | 12963     | **12**      | 124.733     |
 | breadth_first_tree_search                |  ABORTED      | ABORTED    | ABORTED   | ABORTED     | ABORTED     |
-| depth_first_graph_search                 |  **408**      | **409**    | **3364**  | 392         | **2.035**   |
+| depth_first_graph_search                 |  408          | 409        | **3364**  | 392         | **2.035**   |
 | depth_limited_search                     |  ABORTED      | ABORTED    | ABORTED   | ABORTED     | ABORTED     |
 | uniform_cost_search                      |  17882        | 17884      | 156769    | **12**      | 499.634     |
 | recursive_best_first_search              |  ABORTED      | ABORTED    | ABORTED   | ABORTED     | ABORTED     |
-| greedy_best_first_graph_search           |  4498         | 4500       | 39970     | 26          | 102.867     |
+| greedy_best_first_graph_search           |  4498         | 4500       | 39970     | 26          | **102.867** |
 
 ### Heuristics
-| Search Method                            | Expansions    | Goal tests | New nodes | Plan length | Time spent  |
-| -----------------------------------------|:-------------:|:----------:|:---------:|:-----------:| -----------:|
-| astar_search with h_1                    |  17882        | 17884      | 156769    | **12**      | 491.435     |
-| astar_search with h_ignore_preconditions |  5114         | 5116       | 45610     | **12**      | 116.506     |
-| astar_search with h_pg_levelsum          |  11           | 13         | 50        | 6           | 2.122       |
+| Search Method                                | Expansions    | Goal tests | New nodes | Plan length | Time spent  |
+| ---------------------------------------------|:-------------:|:----------:|:---------:|:-----------:| -----------:|
+| astar_search with h_1                        |  17882        | 17884      | 156769    | **12**      | 491.435     |
+| **astar_search with h_ignore_preconditions** |  5114         | 5116       | 45610     | **12**      | 116.506     |
+| astar_search with h_pg_levelsum              |  **404**      | **406**    | 3718      | **12**      | 1617.218    |
 
 ## Optimal plan
 The heuristic a* with ignore preconditions is the one providing the optimal plan
