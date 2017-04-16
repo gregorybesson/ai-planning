@@ -167,14 +167,17 @@ Goal(At(C1, JFK) ∧ At(C3, JFK) ∧ At(C2, SFO) ∧ At(C4, SFO))
 The heuristic a* with ignore preconditions is the one providing the optimal plan
 ```
 Load(C1, P1, SFO)
-Fly(P1, SFO, JFK)
+Fly(P1, SFO, ATL)
+Load(C3, P1, ATL)
+Fly(P1, ATL, JFK)
 Unload(C1, P1, JFK)
 Load(C2, P2, JFK)
-Fly(P2, JFK, SFO)
+Fly(P2, JFK, ORD)
+Load(C4, P2, ORD)
+Fly(P2, ORD, SFO)
 Unload(C2, P2, SFO)
-Load(C3, P3, ATL)
-Fly(P3, ATL, SFO)
-Unload(C3, P3, SFO)
+Unload(C3, P1, JFK)
+Unload(C4, P2, SFO)
 ```
 
 ## Analysis
