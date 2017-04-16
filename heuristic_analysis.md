@@ -3,7 +3,7 @@
 
 ## Introduction
 
-We have 
+In this problem 1, there are 12 fluents, or state variables, which means our state space could be as large as 2to12 = 4096
 
 ## Initial states and goal
 ```
@@ -48,6 +48,7 @@ Many heuristics achieve the optimal length under a second of calculation time. T
 # Problem 2
 
 ## Introduction
+In this problem 2, there are 27 fluents, or state variables, which means our state space could be as large as 2to27 = 134 217 728
 
 ## Initial states and goal
 ```
