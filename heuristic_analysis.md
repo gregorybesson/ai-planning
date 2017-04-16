@@ -80,6 +80,8 @@ Goal(At(C1, JFK) ∧ At(C2, SFO) ∧ At(C3, SFO))
 | astar_search with h_pg_levelsum          |  **86**       | **88**     | **841**   | **9**       | 230.865     |
 
 ## Optimal plan
+
+The heuristic a* with ignore preconditions is the one providing the optimal plan
 ```
 Load(C1, P1, SFO)
 Fly(P1, SFO, JFK)
