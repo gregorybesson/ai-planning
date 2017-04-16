@@ -21,10 +21,10 @@ In contrast with a total-order plan which produces an exact ordering of actions,
 Partial-order planning dominated the next 20 years of research. SNLP being an implementation widely used by many researchers. [8]
 
 ## 1995 - GRAPHPLAN
-The GRAPHPLAN algorithm processes the planning graph, using a backward search to extract a plan. It allows for some partial ordering among actions. It is orders of magnitude faster than the previous partial-order planners of the time: Planning graphs have polynomial size and can be built in polynomial time [8].
-
+The GRAPHPLAN algorithm processes the planning graph, using a backward search to extract a plan. It allows for some partial ordering among actions. It is orders of magnitude faster than the previous partial-order planners of the time: Planning graphs have polynomial size and can be built in polynomial time [8]. A closely related approach to planning is the Planning as Satisfiability (Satplan).
 
 ## Next steps
+recent researches lead to stochastic/probalistic planning with binary decision diagrams [10] and Markov Decision Processes (MDP) [11] which are popular for modeling sequential decision-making scenarii in environments where an intelligent agent could produce actions with uncertain outcomes (not deterministic actions but stochastic).
 
 ## References
 - [1]: https://users.ics.aalto.fi/rintanen/planning.html
@@ -37,3 +37,5 @@ The GRAPHPLAN algorithm processes the planning graph, using a backward search to
 - [7]: Sacerdoti, E., 1975, “The Nonlinear Nature of Plans”, International Joint Conference on Artificial Intelligence, pp. 206-214.
 - [8]: http://homes.cs.washington.edu/~weld/papers/weld-snlp-commentary.pdf
 - [9]: MIT OpenCourseWare lecture on GraphPlan and making planning graphs
+- [10]: http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.121.1953&rep=rep1&type=pdf
+- [11]: http://www.morganclaypool.com/doi/abs/10.2200/S00426ED1V01Y201206AIM017?journalCode=aim
