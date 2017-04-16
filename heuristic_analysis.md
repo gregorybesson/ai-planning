@@ -65,7 +65,7 @@ Goal(At(C1, JFK) ∧ At(C2, SFO) ∧ At(C3, SFO))
 | greedy_best_first_graph_search           |  598          | 600        | 5382      | 17          | 3.982       |
 | astar_search with h_1                    |  4780         | 4782       | 43381     | 9           | 52.049      |
 | astar_search with h_ignore_preconditions |  1506         | 1508       | 13820     | 9           | 16.628      |
-| astar_search with h_pg_levelsum          |  11           | 13         | 50        | 6           | 2.122       |
+| astar_search with h_pg_levelsum          |  86           | 88         | 841       | 9           | 230.865     |
 
 ## Analysis
 
