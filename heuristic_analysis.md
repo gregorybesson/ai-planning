@@ -15,9 +15,9 @@ We'll try to solve 3 different problems in an Air Cargo transport system using 1
 
 3 being heuristic:
 heuristic can be derived by defining a relaxed problem that is easier to solve.
-- astar_search with h_1: heuristic returning the cost of 1 (not a real heuristic).
-- astar_search with h_ignore_preconditions: the ignore preconditions heuristic drops all preconditions from actions.
-- astar_search with h_pg_levelsum: The level sum heuristic, following the subgoal independence assumption, returns the sum of the level costs of the goals.
+- **astar_search with h_1**: heuristic returning the cost of 1 (not a real heuristic).
+- **astar_search with h_ignore_preconditions**: the ignore preconditions heuristic drops all preconditions from actions.
+- **astar_search with h_pg_levelsum**: The level sum heuristic, following the subgoal independence assumption, returns the sum of the level costs of the goals.
 
 We'll then analyze the results and propose the optimal solution for each problem.
 
@@ -59,11 +59,19 @@ Goal(At(C1, JFK) ∧ At(C2, SFO))
 | astar_search with h_pg_levelsum          |  11           | 13         | 50        | **6**       | 2.122       |
 
 ## Optimal plan
-
+The greedy_best_first_graph_search algorithm is the best algorithm generating an optimal plan:
+```
+Load(C1, P1, SFO)
+Load(C2, P2, JFK)
+Fly(P1, SFO, JFK)
+Fly(P2, JFK, SFO)
+Unload(C1, P1, JFK)
+Unload(C2, P2, SFO)
+```
 
 ## Analysis
 
-Many heuristics achieve the optimal length under a second of calculation time. This is the greedy best first search which achieve the best result.
+Many heuristics achieve the optimal length under a second of calculation time. This is the greedy best first search which achieve the best result. Let's notice that the breadth_first_search and depth_first_graph_search are very efficient too. With such a little state space, A* algorithms are not as efficient even if astar_search with h_ignore_preconditions performs very well.
 
 
 # Problem 2
@@ -116,7 +124,7 @@ Unload(C3, P3, SFO)
 ```
 
 ## Analysis
-
+In this problem, the state space is bigger. We see breadth_first_tree_search, depth_limited_search and recursive_best_first_search which have been aborted because of their performance. breadth_first_search and uniform_cost_search achieve the optimal plan length, which is 9. In this case, this is the astar_search with h_ignore_preconditions heuristic which performs the best, even if breadth_first_search is very close.
 
 
 # Problem 3
@@ -170,5 +178,8 @@ Unload(C3, P3, SFO)
 ```
 
 ## Analysis
+In this problem 3, we see once again good performance from breadth_first_search, only beaten by relaxing the problem with the heuristic astar_search with h_ignore_preconditions, achieving much less expansions and goal tests (but being less cost effective, the time spent is almost the same with breadth_first_search).
 
+# Conclusion
+I think that for limited state spaces, non heuristic algorithms are efficient, as we've seen for these 3 problems. breadth_first_search, being quite a simple algorithm is very efficient in the 3 contexts. With state spaces increasing, I think that the heuristic with relaxed problems will prove to be much more efficient. The astar_search with h_ignore_preconditions limits the expansions while being CPU time efficient.
 
